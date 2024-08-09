@@ -1,0 +1,301 @@
+[gd_scene load_steps=20 format=3 uid="uid://dxpcvlx0wrj7b"]
+
+[ext_resource type="Script" path="res://Tab.gd" id="1_0xdhc"]
+[ext_resource type="Script" path="res://Script/Start.gd" id="1_8gbqm"]
+[ext_resource type="Script" path="res://Script/Setting.gd" id="2_dca3t"]
+[ext_resource type="Script" path="res://Script/Edit.gd" id="7_n2r73"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="8_mknvo"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="9_jnv1n"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="10_jjfw2"]
+[ext_resource type="Script" path="res://Debug.gd" id="11_dy2rh"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="11_jgefk"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="12_2ga1b"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="13_2u6uc"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="14_1757y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d34kc"]
+font_size = 40
+
+[sub_resource type="Resource" id="Resource_llips"]
+resource_local_to_scene = true
+script = ExtResource("9_jnv1n")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_hw8v2"]
+resource_local_to_scene = true
+script = ExtResource("10_jjfw2")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ueegp"]
+resource_local_to_scene = true
+script = ExtResource("11_jgefk")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_mokcw"]
+resource_local_to_scene = true
+script = ExtResource("12_2ga1b")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_lt7i3"]
+resource_local_to_scene = true
+script = ExtResource("13_2u6uc")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_a8wrr"]
+resource_local_to_scene = true
+script = ExtResource("14_1757y")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TabBar" type="TabBar" parent="."]
+offset_right = 1280.0
+offset_bottom = 31.0
+drag_to_rearrange_enabled = true
+deselect_enabled = true
+tab_count = 7
+tab_0/title = "Open"
+tab_1/title = "Edit"
+tab_2/title = "Paragraph"
+tab_3/title = "Format"
+tab_4/title = "View"
+tab_5/title = "Themes"
+tab_6/title = "Help"
+script = ExtResource("1_0xdhc")
+
+[node name="PopupPanel" type="PopupPanel" parent="TabBar"]
+title = "wdwdwdwd"
+
+[node name="Start" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_8gbqm")
+
+[node name="FileDialog" type="FileDialog" parent="Start"]
+auto_translate_mode = 1
+title = "Open a Directory"
+initial_position = 2
+size = Vector2i(500, 500)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="FileButton" type="Button" parent="Start"]
+offset_left = 554.0
+offset_top = 308.0
+offset_right = 703.0
+offset_bottom = 339.0
+text = "Open Your Project"
+
+[node name="SettingButton" type="Button" parent="Start"]
+offset_top = 684.0
+offset_right = 35.0
+offset_bottom = 721.0
+text = "⚙"
+
+[node name="Label" type="Label" parent="Start"]
+offset_left = 403.0
+offset_top = 223.0
+offset_right = 867.0
+offset_bottom = 278.0
+text = "Welcome to Hexo Editor"
+label_settings = SubResource("LabelSettings_d34kc")
+
+[node name="Recent" type="VBoxContainer" parent="Start"]
+offset_left = 907.0
+offset_top = 104.0
+offset_right = 1219.0
+offset_bottom = 504.0
+
+[node name="RecentText" type="Label" parent="Start/Recent"]
+layout_mode = 2
+text = "Recent"
+
+[node name="Setting" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("2_dca3t")
+
+[node name="CommandApply" type="Button" parent="Setting"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 946.0
+offset_top = 93.0
+offset_right = 998.0
+offset_bottom = 124.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Apply"
+
+[node name="CommandEdit" type="TextEdit" parent="Setting"]
+offset_left = 335.0
+offset_top = 91.0
+offset_right = 998.0
+offset_bottom = 124.0
+placeholder_text = "Example: hexo"
+
+[node name="CommandText" type="Label" parent="Setting"]
+offset_left = 333.0
+offset_top = 65.0
+offset_right = 455.0
+offset_bottom = 88.0
+text = "Hexo command"
+
+[node name="StartButton" type="Button" parent="Setting"]
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 42.0
+offset_bottom = 71.0
+text = "←"
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingText" type="Label" parent="Setting"]
+offset_left = 46.0
+offset_top = 31.0
+offset_right = 123.0
+offset_bottom = 75.0
+text = "⚙Setting"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting"]
+offset_left = 1.0
+offset_top = 73.0
+offset_right = 237.0
+offset_bottom = 719.0
+
+[node name="Button" type="Button" parent="Setting/VBoxContainer"]
+layout_mode = 2
+text = "Ger"
+
+[node name="Edit" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("7_n2r73")
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="Edit"]
+offset_left = 268.0
+offset_top = 53.0
+offset_right = 1278.0
+offset_bottom = 606.0
+bbcode_enabled = true
+text = "[font_size=36]Click a post to view[/font_size]"
+script = ExtResource("8_mknvo")
+markdown_text = "# Click a post to view"
+h1 = SubResource("Resource_llips")
+h2 = SubResource("Resource_hw8v2")
+h3 = SubResource("Resource_ueegp")
+h4 = SubResource("Resource_mokcw")
+h5 = SubResource("Resource_lt7i3")
+h6 = SubResource("Resource_a8wrr")
+
+[node name="Console" type="TextEdit" parent="Edit"]
+offset_left = 265.0
+offset_top = 604.0
+offset_right = 1278.0
+offset_bottom = 717.0
+text = "h
+h
+h
+h
+h
+h
+h
+h
+h
+"
+
+[node name="DeployButton" type="Button" parent="Edit"]
+offset_left = 1169.0
+offset_top = 3.0
+offset_right = 1280.0
+offset_bottom = 37.0
+text = "Deploy"
+
+[node name="OutlineContainer" type="VBoxContainer" parent="Edit"]
+offset_top = 121.0
+offset_right = 145.0
+offset_bottom = 723.0
+
+[node name="PostContainer" type="VBoxContainer" parent="Edit"]
+offset_top = 121.0
+offset_right = 145.0
+offset_bottom = 717.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Edit"]
+offset_top = 78.0
+offset_right = 120.0
+offset_bottom = 118.0
+
+[node name="PostButton" type="Button" parent="Edit/HBoxContainer"]
+layout_mode = 2
+text = "Posts"
+
+[node name="OutlineButton" type="Button" parent="Edit/HBoxContainer"]
+layout_mode = 2
+text = "Outline"
+
+[node name="DEBUG" type="Node2D" parent="."]
+visible = false
+script = ExtResource("11_dy2rh")
+
+[node name="DebugButton" type="Button" parent="DEBUG"]
+offset_left = 1211.0
+offset_right = 1281.0
+offset_bottom = 37.0
+text = "Debug"
+
+[node name="DebugWindow" type="Node2D" parent="DEBUG"]
+visible = false
+
+[node name="Button" type="Button" parent="DEBUG/DebugWindow"]
+offset_left = 38.0
+offset_top = 105.0
+offset_right = 88.0
+offset_bottom = 136.0
+text = "Open"
+
+[connection signal="tab_clicked" from="TabBar" to="TabBar" method="_on_tab_clicked"]
+[connection signal="tab_clicked" from="TabBar" to="Start" method="_on_tab_clicked"]
+[connection signal="dir_selected" from="Start/FileDialog" to="Start" method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="Start/FileButton" to="Start" method="_on_file_button_pressed"]
+[connection signal="pressed" from="Start/SettingButton" to="Start" method="_on_setting_pressed"]
+[connection signal="pressed" from="Setting/CommandApply" to="Setting" method="_on_command_apply_pressed"]
+[connection signal="text_changed" from="Setting/CommandEdit" to="Setting" method="_on_command_edit_text_changed"]
+[connection signal="pressed" from="Setting/StartButton" to="Setting" method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="Edit/MarkdownLabel" to="Edit" method="_on_markdown_label_focus_entered"]
+[connection signal="pressed" from="Edit/DeployButton" to="Edit" method="_on_deploy_button_pressed"]
+[connection signal="pressed" from="DEBUG/DebugButton" to="DEBUG" method="_on_debug_button_pressed"]
